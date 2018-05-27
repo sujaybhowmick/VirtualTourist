@@ -47,8 +47,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-af-dBQ">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on Pin to Remove it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-Rs-01W">
-                                        <rect key="frame" x="80" y="15" width="215" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on pin to remove it" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-Rs-01W">
+                                        <rect key="frame" x="80" y="15" width="190.5" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.58994304265145359" blue="0.38186433040125567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Swa-Rs-01W" secondAttribute="trailing" constant="80" id="4V7-uV-0xU"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Swa-Rs-01W" secondAttribute="trailing" id="4V7-uV-0xU"/>
                                     <constraint firstItem="Swa-Rs-01W" firstAttribute="top" secondItem="SLF-af-dBQ" secondAttribute="top" constant="15" id="FiW-El-vLn"/>
                                     <constraint firstAttribute="bottom" secondItem="Swa-Rs-01W" secondAttribute="bottom" constant="15" id="ZoF-k2-uqE"/>
                                     <constraint firstItem="Swa-Rs-01W" firstAttribute="leading" secondItem="SLF-af-dBQ" secondAttribute="leading" constant="80" id="o0o-dx-WMH"/>
@@ -80,6 +80,7 @@
                     <connections>
                         <outlet property="footerView" destination="SLF-af-dBQ" id="xrF-VQ-h8Q"/>
                         <outlet property="mkMapView" destination="3ci-tX-dMG" id="5ZY-me-dtw"/>
+                        <segue destination="6Kb-Qd-m9T" kind="show" identifier="showVirtualTouristAlbum" id="uBa-Y8-2lQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cU-XO-7x6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,6 +91,74 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="-107.49625187406298"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RQB-8K-v9U">
+            <objects>
+                <viewController id="6Kb-Qd-m9T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ttr-BS-Dnd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-A8-jWS">
+                                <rect key="frame" x="0.0" y="65" width="375" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="jIg-zN-94G"/>
+                                    <constraint firstAttribute="height" constant="113" id="v3z-lw-PeQ"/>
+                                </constraints>
+                            </mapView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AhI-h8-Lxu">
+                                <rect key="frame" x="0.0" y="179" width="375" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A1X-cz-UEW">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gOA-Jm-7mo">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVb-Ui-E4s">
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <color key="backgroundColor" red="0.22418449979999999" green="0.3709182888" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="KXh-is-x8k"/>
+                                </constraints>
+                                <state key="normal" title="New Collection">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AhI-h8-Lxu" firstAttribute="leading" secondItem="IiJ-lH-xLa" secondAttribute="leading" id="3n0-H5-pPC"/>
+                            <constraint firstItem="AhI-h8-Lxu" firstAttribute="top" secondItem="uBH-A8-jWS" secondAttribute="bottom" constant="1" id="9J0-c3-vjw"/>
+                            <constraint firstItem="uBH-A8-jWS" firstAttribute="leading" secondItem="AhI-h8-Lxu" secondAttribute="leading" id="AoJ-bI-LRN"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="bottom" secondItem="IiJ-lH-xLa" secondAttribute="bottom" id="Egs-mL-yf2"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="bottom" secondItem="IiJ-lH-xLa" secondAttribute="bottom" id="Nw4-0N-7tL"/>
+                            <constraint firstItem="AhI-h8-Lxu" firstAttribute="trailing" secondItem="IiJ-lH-xLa" secondAttribute="trailing" id="VwS-sF-YKx"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="top" secondItem="uBH-A8-jWS" secondAttribute="bottom" constant="443" id="XDN-SA-SL9"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="trailing" secondItem="IiJ-lH-xLa" secondAttribute="trailing" id="cHR-ox-Guw"/>
+                            <constraint firstItem="IiJ-lH-xLa" firstAttribute="bottom" secondItem="AhI-h8-Lxu" secondAttribute="bottom" constant="45" id="lw9-ng-2iM"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="leading" secondItem="IiJ-lH-xLa" secondAttribute="leading" id="nmc-7d-w9N"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="leading" secondItem="IiJ-lH-xLa" secondAttribute="leading" id="tBv-52-dkl"/>
+                            <constraint firstItem="xVb-Ui-E4s" firstAttribute="trailing" secondItem="IiJ-lH-xLa" secondAttribute="trailing" id="yNL-Ch-TcI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IiJ-lH-xLa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJt-mv-EU8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002.4" y="-110.19490254872565"/>
         </scene>
     </scenes>
 </document>

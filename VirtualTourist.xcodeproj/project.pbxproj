@@ -24,6 +24,7 @@
 		909CD77020BA734D004D377B /* PhotoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CD76F20BA734D004D377B /* PhotoParser.swift */; };
 		909CD77320BA771A004D377B /* VirtualTouristMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CD77220BA771A004D377B /* VirtualTouristMapViewController.swift */; };
 		909CD77520BA7B9C004D377B /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CD77420BA7B9C004D377B /* ViewController+Extension.swift */; };
+		909CD77720BA8C56004D377B /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909CD77620BA8C56004D377B /* PhotoAlbumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		909CD76F20BA734D004D377B /* PhotoParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoParser.swift; sourceTree = "<group>"; };
 		909CD77220BA771A004D377B /* VirtualTouristMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristMapViewController.swift; sourceTree = "<group>"; };
 		909CD77420BA7B9C004D377B /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		909CD77620BA8C56004D377B /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +80,10 @@
 		909CD74520B8CDAC004D377B /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
-				909CD77120BA76E6004D377B /* ViewController */,
+				909CD77120BA76E6004D377B /* ViewControllers */,
 				909CD76A20BA7176004D377B /* Networking */,
 				909CD76720B8D1D8004D377B /* View */,
-				909CD75B20B8CE4A004D377B /* Model */,
+				909CD75B20B8CE4A004D377B /* Models */,
 				909CD74620B8CDAC004D377B /* AppDelegate.swift */,
 				909CD74820B8CDAD004D377B /* ViewController.swift */,
 				909CD74A20B8CDAD004D377B /* Main.storyboard */,
@@ -94,7 +96,7 @@
 			path = VirtualTourist;
 			sourceTree = "<group>";
 		};
-		909CD75B20B8CE4A004D377B /* Model */ = {
+		909CD75B20B8CE4A004D377B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				909CD75F20B8D0EB004D377B /* Photo+CoreDataClass.swift */,
@@ -103,7 +105,7 @@
 				909CD76220B8D0EB004D377B /* Pin+CoreDataProperties.swift */,
 				909CD76F20BA734D004D377B /* PhotoParser.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		909CD76720B8D1D8004D377B /* View */ = {
@@ -123,13 +125,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		909CD77120BA76E6004D377B /* ViewController */ = {
+		909CD77120BA76E6004D377B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				909CD77220BA771A004D377B /* VirtualTouristMapViewController.swift */,
 				909CD77420BA7B9C004D377B /* ViewController+Extension.swift */,
+				909CD77620BA8C56004D377B /* PhotoAlbumViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +220,7 @@
 				909CD76C20BA720E004D377B /* Client.swift in Sources */,
 				909CD74720B8CDAC004D377B /* AppDelegate.swift in Sources */,
 				909CD77020BA734D004D377B /* PhotoParser.swift in Sources */,
+				909CD77720BA8C56004D377B /* PhotoAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
