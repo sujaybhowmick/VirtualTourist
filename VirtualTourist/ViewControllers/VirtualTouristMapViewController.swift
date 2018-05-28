@@ -20,19 +20,19 @@ class VirtualTouristMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
         let location = sender.location(in: self.mkMapView)
-        let locCoord = self.mkMapView.convert(location, toCoordinateFrom: self.mkMapView)
+        let pinCoordinates = self.mkMapView.convert(location, toCoordinateFrom: self.mkMapView)
         
         if sender.state == .began {
             
             pinAnnotation = MKPointAnnotation()
-            pinAnnotation!.coordinate = locCoord
+            pinAnnotation!.coordinate = pinCoordinates
             
-            print("\(#function) Coordinate: \(locCoord.latitude),\(locCoord.longitude)")
+            print("\(#function) Coordinates: \(pinCoordinates.latitude),\(pinCoordinates.longitude)")
             
             self.mkMapView.addAnnotation(pinAnnotation!)
             
         } else if sender.state == .changed {
-            pinAnnotation!.coordinate = locCoord
+            pinAnnotation!.coordinate = pinCoordinates
         } else if sender.state == .ended {
             
             _ = Pin(
@@ -56,12 +56,12 @@ class VirtualTouristMapViewController: UIViewController, MKMapViewDelegate {
         navigationItem.rightBarButtonItem = editButtonItem
         footerView.isHidden = true
         
-        if let pins = loadAllPins() {
+        if let pins = loadPins() {
             showPins(pins)
         }
     }
     
-    func loadAllPins() -> [Pin]? {
+    func loadPins() -> [Pin]? {
         var pins: [Pin]?
         do {
             try pins = CoreDataStack.shared().fetchAllPins(entityName: Pin.name)
@@ -93,6 +93,16 @@ class VirtualTouristMapViewController: UIViewController, MKMapViewDelegate {
             self.mkMapView.addAnnotation(annotation)
         }
         self.mkMapView.showAnnotations(self.mkMapView.annotations, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is PhotoAlbumViewController {
+            guard let pin = sender as? Pin else {
+                return
+            }
+            let controller = segue.destination as! PhotoAlbumViewController
+            controller.pin = pin
+        }
     }
 }
 

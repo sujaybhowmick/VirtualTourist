@@ -21,7 +21,7 @@ struct CoreDataStack {
     
     static func shared() -> CoreDataStack {
         struct Singleton {
-            static var shared = CoreDataStack(modelName: "virtual-tourist")!
+            static var shared = CoreDataStack(modelName: "Virtual-Tourist")!
         }
         return Singleton.shared
     }
