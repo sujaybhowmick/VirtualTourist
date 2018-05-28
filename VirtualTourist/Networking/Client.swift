@@ -141,8 +141,6 @@ extension Client {
         return task
     }
     
-    // MARK: Helper for Creating a URL from Parameters
-    
     private func buildURLFromParameters(_ parameters: [String: String], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
@@ -160,7 +158,7 @@ extension Client {
     }
     
     private func bboxString(latitude: Double, longitude: Double) -> String {
-        // ensure bbox is bounded by minimum and maximums
+        
         let minimumLon = max(longitude - Flickr.SearchBBoxHalfWidth, Flickr.SearchLonRange.0)
         let minimumLat = max(latitude  - Flickr.SearchBBoxHalfHeight, Flickr.SearchLatRange.0)
         let maximumLon = min(longitude + Flickr.SearchBBoxHalfWidth, Flickr.SearchLonRange.1)
@@ -168,9 +166,7 @@ extension Client {
         return "\(minimumLon),\(minimumLat),\(maximumLon),\(maximumLat)"
     }
     
-    /// Show or Hide Network activity indicator.
-    ///
-    /// - Parameter show: use either **true** to show or **false** to hide it
+  
     private func showActivityIndicator(_ show: Bool) {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = show
