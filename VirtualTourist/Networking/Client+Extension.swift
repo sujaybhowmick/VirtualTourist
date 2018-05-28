@@ -8,8 +8,6 @@
 
 extension Client {
     
-    // MARK: - Flickr
-    
     struct Flickr {
         static let APIScheme = "https"
         static let APIHost = "api.flickr.com"
